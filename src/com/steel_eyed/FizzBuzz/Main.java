@@ -19,7 +19,7 @@ public class Main {
      * @param n int
      * @return String
      */
-    private static String isFizzBuzz( int n ) {
+    public static String isFizzBuzz( int n ) {
         String output = "";
         if ( n % 3 == 0 )
             output += "Fizz";
