@@ -10,6 +10,13 @@ public class Main {
      * @param end   int
      */
     private static void fizzBuzz( int start, int end ) {
+        // Need to make sure end is the bigger number
+        if( start > end ) {
+            // Swap 2 numbers without using a 3rd variable
+            start = start + end;
+            end =  start - end;
+            start = start - end;
+        }
         for( int i = start; i <= end; i++ ) {
             System.out.println( isFizzBuzz( i ) );
         }
