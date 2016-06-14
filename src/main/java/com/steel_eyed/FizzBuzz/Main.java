@@ -2,7 +2,7 @@ package com.steel_eyed.FizzBuzz;
 
 public class Main {
     /**
-     * Prints out to System.out Fizz Buzz values from start to end
+     * Prints out to System.out Fizz Buzz values from start to end.
      *
      * @param start int
      * @param end int
@@ -11,6 +11,15 @@ public class Main {
         for ( int i = start; i <= end; i++ ) {
             System.out.println( isFizzBuzz( i ) );
         }
+    }
+
+    /**
+     * Calls fizzBuzz starting from 1 to end.
+     *
+     * @param end int
+     */
+    private static void fizzBuzz( int end ) {
+        fizzBuzz( 1, end );
     }
 
     /**
@@ -30,14 +39,6 @@ public class Main {
         return output;
     }
 
-    /**
-     * Calls fizzBuzz starting from 1 to end.
-     *
-     * @param end int
-     */
-    private static void fizzBuzz( int end ) {
-        fizzBuzz( 1, end );
-    }
 
     public static void main( String[] args ) {
         fizzBuzz( 100 );

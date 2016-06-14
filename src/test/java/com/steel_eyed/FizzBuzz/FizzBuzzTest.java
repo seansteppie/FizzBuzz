@@ -1,3 +1,5 @@
+package com.steel_eyed.FizzBuzz;
+
 import org.junit.Test;
 
 import static com.steel_eyed.FizzBuzz.Main.isFizzBuzz;

@@ -1,0 +1,78 @@
+apply plugin: 'java'
+/*
+ * Build script for: FizzBuzz
+ *
+ */
+
+/*
+ * Define repositories for Gradle Templates from:
+ *	https://github.com/townsfolk/gradle-templates
+ *
+ */
+
+buildscript {
+    repositories {
+        maven {
+            url 'http://dl.bintray.com/cjstehno/public'
+        }
+    }
+    dependencies {
+        classpath 'gradle-templates:gradle-templates:1.5'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'templates'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+version = '1.0.0'
+group = 'com.steel_eyed.FizzBuzz'
+description = "\n${name} Project\nVersion: ${version}"
+mainClassName = "com.steel_eyed.FizzBuzz.Main"
+
+/*
+ * Use filesystem as local repositories.
+ *
+ */
+repositories {
+    flatDir {
+        name 'localRepository'
+    }
+}
+
+repositories {
+     localRepository {
+         dirs ( [ '/usr/share/java' ],
+                [ '/opt/mine' ],
+	        [ '/usr/share/java/hamcrest' ] )
+     }
+}
+
+// repositories.localRepository {
+//      dirs '/usr/share/java'
+// }
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+task listJars << {
+    configurations.compile.each { File file -> println file.name }
+}
+
+task showCache << {
+	configurations.compile.each { println it }
+}
+
+dependencies {
+	compile ( [ group: 'org.apache.log4j', name: 'log4j', version: '1.2.17' ] )
+	testCompile ( [ group: 'org.junit', name: 'junit', version: '4.+' ],
+                      [ group: 'org.hamcrest', name: 'core', version: '1.3-13' ] )
+}
+
